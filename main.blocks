@@ -1,0 +1,284 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="c^Zaaa,s_ds7C0{$MMCd">asleep</variable>
+    <variable type="" id="f#bH*~H}/?vxm:G:4dC4">dropNum</variable>
+  </variables>
+  <comment data="0" x="950" y="20" h="120" w="390">class screensaver { constructor() { } }</comment>
+  <block type="pxt-on-start" x="20" y="20">
+    <statement name="HANDLER">
+      <block type="typescript_statement" editable="false">
+        <mutation line0="class dropNode {" line1="    drop: game.LedSprite" line2="    nextDrop: dropNode" line3="    constructor() {" line4="        //Create new sprite at random led on top of the screen" line5="        this.drop = game.createSprite(Math.randomRange(0, 4), 0)" line6="        //Reference to the next element" line7="        this.nextDrop = null" line8="    }" line9="}" numlines="10"></mutation>
+        <field name="LINE0">class dropNode {</field>
+        <field name="LINE1">    drop: game.LedSprite</field>
+        <field name="LINE2">    nextDrop: dropNode</field>
+        <field name="LINE3">    constructor() {</field>
+        <field name="LINE4">        //Create new sprite at random led on top of the screen</field>
+        <field name="LINE5">        this.drop = game.createSprite(Math.randomRange(0, 4), 0)</field>
+        <field name="LINE6">        //Reference to the next element</field>
+        <field name="LINE7">        this.nextDrop = null</field>
+        <field name="LINE8">    }</field>
+        <field name="LINE9">}</field>
+        <comment id="undefined" pinned="false" h="80" w="160">Nodes for linked list</comment>
+        <data>0</data>
+        <next>
+          <block type="typescript_statement" editable="false">
+            <mutation line0="class droplets {" line1="    head: dropNode" line2="    constructor() {" line3="        this.head = null" line4="    }" line5="    addDrop() {" line6="        const newDrop = new dropNode()" line7="        //Initialize the head of linked list on first run" line8="        if (this.head == null) {" line9="            this.head = newDrop" line10="        } else {" line11="            //Iterate through list" line12="            let current = this.head" line13="            while (current.nextDrop) {" line14="                current = current.nextDrop" line15="            }" line16="            //Add new element at the end" line17="            current.nextDrop = newDrop" line18="        }" line19="    }" line20="    fall() {" line21="        //When a drop reaches the end of screen, delete sprite and move head to next element" line22="        while (this.head.drop.get(LedSpriteProperty.Y) == 4) {" line23="            this.head.drop.delete()" line24="            this.head = this.head.nextDrop" line25="        }" line26="        //Iterate through linked list, moving drops down the screen" line27="        let current2 = this.head" line28="        while (current2.nextDrop) {" line29="            current2.drop.changeYBy(1)" line30="            current2 = current2.nextDrop" line31="        }" line32="    }" line33="    delSprites() {" line34="        let current3 = this.head" line35="        while (current3.nextDrop) {" line36="            this.head.drop.delete()" line37="            current3 = current3.nextDrop" line38="        }" line39="        this.head = null" line40="    }" line41="}" numlines="42"></mutation>
+            <field name="LINE0">class droplets {</field>
+            <field name="LINE1">    head: dropNode</field>
+            <field name="LINE2">    constructor() {</field>
+            <field name="LINE3">        this.head = null</field>
+            <field name="LINE4">    }</field>
+            <field name="LINE5">    addDrop() {</field>
+            <field name="LINE6">        const newDrop = new dropNode()</field>
+            <field name="LINE7">        //Initialize the head of linked list on first run</field>
+            <field name="LINE8">        if (this.head == null) {</field>
+            <field name="LINE9">            this.head = newDrop</field>
+            <field name="LINE10">        } else {</field>
+            <field name="LINE11">            //Iterate through list</field>
+            <field name="LINE12">            let current = this.head</field>
+            <field name="LINE13">            while (current.nextDrop) {</field>
+            <field name="LINE14">                current = current.nextDrop</field>
+            <field name="LINE15">            }</field>
+            <field name="LINE16">            //Add new element at the end</field>
+            <field name="LINE17">            current.nextDrop = newDrop</field>
+            <field name="LINE18">        }</field>
+            <field name="LINE19">    }</field>
+            <field name="LINE20">    fall() {</field>
+            <field name="LINE21">        //When a drop reaches the end of screen, delete sprite and move head to next element</field>
+            <field name="LINE22">        while (this.head.drop.get(LedSpriteProperty.Y) == 4) {</field>
+            <field name="LINE23">            this.head.drop.delete()</field>
+            <field name="LINE24">            this.head = this.head.nextDrop</field>
+            <field name="LINE25">        }</field>
+            <field name="LINE26">        //Iterate through linked list, moving drops down the screen</field>
+            <field name="LINE27">        let current2 = this.head</field>
+            <field name="LINE28">        while (current2.nextDrop) {</field>
+            <field name="LINE29">            current2.drop.changeYBy(1)</field>
+            <field name="LINE30">            current2 = current2.nextDrop</field>
+            <field name="LINE31">        }</field>
+            <field name="LINE32">    }</field>
+            <field name="LINE33">    delSprites() {</field>
+            <field name="LINE34">        let current3 = this.head</field>
+            <field name="LINE35">        while (current3.nextDrop) {</field>
+            <field name="LINE36">            this.head.drop.delete()</field>
+            <field name="LINE37">            current3 = current3.nextDrop</field>
+            <field name="LINE38">        }</field>
+            <field name="LINE39">        this.head = null</field>
+            <field name="LINE40">    }</field>
+            <field name="LINE41">}</field>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="device_button_event" x="1385" y="20">
+    <field name="NAME">Button.A</field>
+    <comment id="undefined" pinned="false" h="80" w="160">When the A button is pressed and held for 2 seconds, sleeps</comment>
+    <statement name="HANDLER">
+      <block type="variables_set">
+        <field name="VAR" id="c^Zaaa,s_ds7C0{$MMCd" variabletype="">asleep</field>
+        <comment id="undefined" pinned="false" h="80" w="160">basic.pause(2000) if (input.buttonIsPressed(Button.A))</comment>
+        <value name="VALUE">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+          <block type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="device_button_event" x="1788" y="20">
+    <field name="NAME">Button.B</field>
+    <comment id="undefined" pinned="false" h="80" w="160">Changes mode to working</comment>
+    <statement name="HANDLER">
+      <block type="variables_set">
+        <field name="VAR" id="c^Zaaa,s_ds7C0{$MMCd" variabletype="">asleep</field>
+        <value name="VALUE">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+          <block type="logic_boolean">
+            <field name="BOOL">FALSE</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+  <block type="device_gesture_event" x="2170" y="20">
+    <field name="NAME">Gesture.Shake</field>
+    <statement name="HANDLER">
+      <block type="controls_if">
+        <value name="IF0">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block type="variables_get">
+            <field name="VAR" id="c^Zaaa,s_ds7C0{$MMCd" variabletype="">asleep</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="typescript_statement" editable="false">
+            <mutation line0="let rain = new droplets()" numlines="1" declaredvars="rain"></mutation>
+            <field name="LINE0">let rain = new droplets()</field>
+            <next>
+              <block type="typescript_statement" editable="false">
+                <mutation line0="let dropNum: number" numlines="1" declaredvars="dropNum"></mutation>
+                <field name="LINE0">let dropNum: number</field>
+                <next>
+                  <block type="device_while">
+                    <comment id="undefined" pinned="false" h="80" w="160">loop to create new rain drops and have them fall continuously</comment>
+                    <value name="COND">
+                      <shadow type="logic_boolean">
+                        <field name="BOOL">TRUE</field>
+                      </shadow>
+                      <block type="variables_get">
+                        <field name="VAR" id="c^Zaaa,s_ds7C0{$MMCd" variabletype="">asleep</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="variables_set">
+                        <field name="VAR" id="f#bH*~H}/?vxm:G:4dC4" variabletype="">dropNum</field>
+                        <value name="VALUE">
+                          <shadow type="math_number">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="device_random">
+                            <value name="min">
+                              <shadow type="math_number">
+                                <field name="NUM">1</field>
+                              </shadow>
+                            </value>
+                            <value name="limit">
+                              <shadow type="math_number">
+                                <field name="NUM">3</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_repeat_ext">
+                            <value name="TIMES">
+                              <shadow type="math_whole_number">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="variables_get">
+                                <field name="VAR" id="f#bH*~H}/?vxm:G:4dC4" variabletype="">dropNum</field>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="typescript_statement" editable="false">
+                                <mutation line0="rain.addDrop()" numlines="1"></mutation>
+                                <field name="LINE0">rain.addDrop()</field>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="device_pause">
+                                <value name="pause">
+                                  <shadow type="timePicker">
+                                    <field name="ms">100</field>
+                                  </shadow>
+                                </value>
+                                <next>
+                                  <block type="typescript_statement" editable="false">
+                                    <mutation line0="rain.fall()" numlines="1"></mutation>
+                                    <field name="LINE0">rain.fall()</field>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="game_pause">
+                        <next>
+                          <block type="typescript_statement" editable="false">
+                            <mutation line0="rain.delSprites()" numlines="1"></mutation>
+                            <field name="LINE0">rain.delSprites()</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="device_gesture_event" x="2728" y="20">
+    <field name="NAME">Gesture.TiltLeft</field>
+    <statement name="HANDLER">
+      <block type="device_while">
+        <value name="COND">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block type="logic_operation">
+            <field name="OP">AND</field>
+            <value name="A">
+              <shadow type="logic_boolean">
+                <field name="BOOL">TRUE</field>
+              </shadow>
+              <block type="variables_get">
+                <field name="VAR" id="c^Zaaa,s_ds7C0{$MMCd" variabletype="">asleep</field>
+              </block>
+            </value>
+            <value name="B">
+              <shadow type="logic_boolean">
+                <field name="BOOL">TRUE</field>
+              </shadow>
+              <block type="deviceisgesture">
+                <field name="gesture">Gesture.TiltLeft</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="device_plot_bar_graph">
+            <value name="value">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="high">
+              <shadow type="math_number">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="device_forever" x="20" y="2641">
+    <statement name="HANDLER">
+      <block type="controls_if">
+        <value name="IF0">
+          <shadow type="logic_boolean">
+            <field name="BOOL">TRUE</field>
+          </shadow>
+          <block type="logic_negate">
+            <value name="BOOL">
+              <shadow type="logic_boolean">
+                <field name="BOOL">TRUE</field>
+              </shadow>
+              <block type="variables_get">
+                <field name="VAR" id="c^Zaaa,s_ds7C0{$MMCd" variabletype="">asleep</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="basic_show_icon">
+            <field name="i">IconNames.SmallHeart</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>
